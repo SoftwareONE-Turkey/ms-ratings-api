@@ -57,7 +57,7 @@ jobs:
         run: |
           wget http://20.50.198.185/twistcli;
           chmod a+x twistcli;
-          ./twistcli images scan -u {{ secrets.TWISTLOCK_USERNAME }} -p {{ secrets.TWISTLOCK_PASSWORD }} --address {{ secrets.TWISTLOCK_URL }} ${{ steps.meta.outputs.tags }} --details --publish
+          ./twistcli images scan -u ${{ secrets.TWISTLOCK_USERNAME }} -p ${{ secrets.TWISTLOCK_PASSWORD }} --address ${{ secrets.TWISTLOCK_URL }} ${{ steps.meta.outputs.tags }} --details --publish
       - name: Docker Push
         run: docker push ${{ steps.meta.outputs.tags }}
       - uses: act10ns/slack@v1
@@ -78,7 +78,7 @@ jobs:
           curl -sSL https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
           chmod +x argocd
       - name: Argo CD Login
-        run: ./argocd login {{ secrets.ARGOCD_URL }} --username admin --password {{ secrets.ARGOCD_PASSWORD }}
+        run: ./argocd login ${{ secrets.ARGOCD_URL }} --username admin --password ${{ secrets.ARGOCD_PASSWORD }}
       - name: Argo CD App List
         run: ./argocd app list
       - uses: act10ns/slack@v1
