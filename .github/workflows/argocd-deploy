@@ -1,4 +1,4 @@
-name: Docker
+name: ArgoCD Deploy
 
 on:
   push:
