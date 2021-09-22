@@ -82,11 +82,11 @@ jobs:
       - name: Argo CD App List
         run: ./argocd app list
       - name: Argo CD App Set
-        run: argocd app set ratings-api -p image.dev.repository=quay.io/swoturkey/ratings-api -p image.dev.tag=master
+        run: ./argocd app set ratings-api -p image.dev.repository=quay.io/swoturkey/ratings-api -p image.dev.tag=master
       - name: Argo CD App Sync
-        run: argocd app sync ratings-api
+        run: ./argocd app sync ratings-api
       - name: Restart Pods
-        run: argocd app actions run ratings-api restart --kind Deployment
+        run: ./argocd app actions run ratings-api restart --kind Deployment
       - uses: act10ns/slack@v1
         with: 
           status: ${{ job.status }}
