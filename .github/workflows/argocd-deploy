@@ -20,7 +20,6 @@ jobs:
   containerization:
     #if: github.event_name != 'push'
     runs-on: ubuntu-latest
-    needs: snyk
     permissions:
       contents: read
       packages: write
