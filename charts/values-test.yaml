@@ -9,4 +9,4 @@ image:
   tag: master
 
 ###### SECRETS ######
-mongodb_uri: "mongodb://sa:sa123@mongodb.ratings-app-test:27017/ratingsdb"
+mongodb_uri: "mongodb://sa:sa123@ratings-mongodb.ratings-app-test:27017/ratingsdb"
